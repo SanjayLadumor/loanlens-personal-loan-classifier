@@ -20,18 +20,10 @@ function showPage(page) {
     const analysis = document.getElementById("analysispage");
     const featureeffect = document.getElementById("featureeffect");
     const predict = document.getElementById("predictionpage");
-    const analysis = document.getElementById("analysispage");
 
     const navButtons =
         document.querySelectorAll('.buttons button');
-
-    const activeClasses = [
-        "bg-fuchsia-300/10",
-        "px-2",
-        "py-1",
-        "rounded-lg"
-    ];
-    const navButtons = document.querySelectorAll('.buttons button');
+        
     const activeClasses = ["bg-fuchsia-300/10", "px-2", "py-1", "rounded-lg"];
 
     predict.classList.add("hidden");

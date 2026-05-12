@@ -220,7 +220,8 @@
   <!-- Analysis Page -->
 
   <div id="analysispage" class="w-full analysispage hidden text-white p-1">
-    <div class="threepages">
+    <div class="threepages flex">
+
       <div class="sectiononehere w-[20vw] m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f]">
         <div class="topbox flex justify-between items-center">
           <div class="headingbox flex flex-col justify-center items-center">
@@ -238,7 +239,7 @@
             </button>
           </div>
         </div>
-        <div class="allbuttons mt-2 h-[40vh] overflow-y-auto">
+        <div class="allbuttons mt-2 h-[45vh] overflow-y-auto overflow-x-hidden">
 
           <div class="rowone flex gap-2">
             <div class="agebox bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
@@ -304,32 +305,198 @@
 
           <div class="rowfive flex gap-2 mt-2">
             <div class="loanbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Family</label>
+              <label class="block text-slate-300 text-[10px] font-bold mb-1">Loan</label>
               <div class="1234btns flex items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2">1</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2">2</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">1</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">2</button>
               </div>
             </div>
-            <div class="educationbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Education</label>
+            <div class="securitiesaccountbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
+              <label class="block text-slate-300 text-[10px] font-bold mb-1">Securities Account</label>
               <div class="1234btns flex justify-center items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">1</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">2</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">3</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rowsix flex gap-2 mt-2">
+            <div class="cdaccountbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
+              <label class="block text-slate-300 text-[10px] font-bold mb-1">CD Account</label>
+              <div class="1234btns flex items-center gap-1">
+                <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+              </div>
+            </div>
+            <div class="onlinebankingbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
+              <label class="block text-slate-300 text-[10px] font-bold mb-1">Online Banking</label>
+              <div class="1234btns flex justify-center items-center gap-1">
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rowsix">
+            <div class="creditcardbox bg-[#0b1326] rounded-lg p-2 w-1/2 mt-2 border border-[#17274e]">
+              <label class="block text-slate-300 text-[10px] font-bold mb-1">Credit Card</label>
+              <div class="1234btns flex items-center gap-1">
+                <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="showresults mt-4">
+          <button
+            class="w-full py-2 px-4 cursor-pointer rounded-4xl font-bold text-white bg-linear-to-r from-[#00D2FF] via-[#3A7BD5] to-[#9D50BB] hover:opacity-90 transition-opacity duration-200 shadow-lg">
+            Show Results
+          </button>
+        </div>
+
+        <div class="texthere text-[10px] text-slate-500 mt-3 cursor-default">
+          Uploaded datasets must contain the same columns as the default bank dataset. Slider ranges automatically adapt
+          according to uploaded dataset values.
+        </div>
+
+      </div>
+
+      <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[60vw]">
+        <div class="topsectionh p-2 flex justify-between items-center">
+          <div class="box1text flex flex-col">
+            <div class="honehere text-[20px] font-bold">
+              Customer Dataset
+            </div>
+            <div class="subhline text-[10px] text-slate-500">
+              Live filtered rows from backend
+            </div>
+          </div>
+          <div class="btnhere">
+            <button class="bg-white/5 border border-white/10 cursor-pointer rounded-[10px] p-2">
+              Export CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="tablehere">
+
+        </div>
+
+      </div>
+
+      <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[20vw]">
+        <div class="allboxeshere p-2 flex flex-col gap2">
+          <div class="box1 bg-[#0b1326] rounded-lg p-2 gap-2 flex flex-col mt-2 border border-[#17274e] w-full">
+            <div class="smalltxt text-[8px] text-slate-500">
+              TOTAL ROWS
+            </div>
+            <div class="numberh text-[20px] font-bold">
+              1233
+            </div>
+          </div>
+
+          <div class="box2 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+            <div class="smalltxt text-[8px] text-slate-500">
+              TOTAL ROWS
+            </div>
+            <div class="numberh text-[20px] font-bold">
+              1233
+            </div>
+          </div>
+
+          <div class="box3 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+            <div class="smalltxt text-[8px] text-slate-500">
+              TOTAL ROWS
+            </div>
+            <div class="numberh text-[20px] font-bold">
+              1233
+            </div>
+          </div>
+
+          <div class="box4 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+            <div class="smalltxt text-[8px] text-slate-500">
+              TOTAL ROWS
+            </div>
+            <div class="numberh text-[20px] font-bold">
+              1233
+            </div>
+          </div>
+
+          <div class="box5 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+            <div class="smalltxt text-[8px] text-slate-500">
+              EDUCATION COUNT
+            </div>
+            <div class="educationbars flex flex-col">
+              <div class="educationbar1">
+                <div class="numberh flex justify-between text-[10px] ">
+                  <div class="headonr">
+                    Education 1
+                  </div>
+                  <div class="headtwor">
+                    428
+                  </div>
+                </div>
+                <div
+                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+                </div>
+              </div>
+
+              <div class="educationbar2 mt-1">
+                <div class="numberh flex justify-between text-[10px] ">
+                  <div class="headonr">
+                    Education 1
+                  </div>
+                  <div class="headtwor">
+                    428
+                  </div>
+                </div>
+                <div
+                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+                </div>
+              </div>
+
+              <div class="educationbar3 mt-1">
+                <div class="numberh flex justify-between text-[10px] ">
+                  <div class="headonr">
+                    Education 1
+                  </div>
+                  <div class="headtwor">
+                    428
+                  </div>
+                </div>
+                <div
+                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+                </div>
               </div>
             </div>
           </div>
 
         </div>
       </div>
+
     </div>
   </div>
 
   <!-- Feature Effect Page -->
 
-  <div id="featureeffect"
-    class="featureeffect w-full analysispage hidden text-white m-1 border-white border rounded-2xl p-1">
-    this is feature effect page
+  <div id="featureeffect" class="featureeffect w-full hidden text-white mt-1">
+    <div class="twopages m-3">
+      <div class="pagesec1 w-[30vw] bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+        <div class="headingboxh flex justify-between items-center">
+          <div class="twoheadhere flex flex-col gap-1">
+            <div class="htext text-[20px] font-bold">
+              Feature Controls
+            </div>
+            <div class="hsmalltxt text-[12px] text-slate-400">
+              Modify attributes to simulate prediction shifts.
+            </div>
+          </div>
+          <div data-source-pos="81:14-83:20" data-source-name="div" class="w-8 h-8 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-300">✦</div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
