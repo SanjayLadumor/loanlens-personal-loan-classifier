@@ -54,45 +54,45 @@ def predict():
 
         probability = model.predict_proba(input_data)[0][1]
 
-        analysis_data = [
-
-            {
-                "feature": "Income",
-                "value": income,
-                "impact": min(income / 50000, 1)
-            },
-
-            {
-                "feature": "CCAvg",
-                "value": ccavg,
-                "impact": min(ccavg / 5000, 1)
-            },
-
-            {
-                "feature": "Education",
-                "value": education,
-                "impact": education / 3
-            },
-
-            {
-                "feature": "CD Account",
-                "value": cd_account,
-                "impact": 0.8 if cd_account == 1 else 0.2
-            },
-
-            {
-                "feature": "Mortgage",
-                "value": mortgage,
-                "impact": min(mortgage / 50000, 1)
-            },
-
-            {
-                "feature": "Age",
-                "value": age,
-                "impact": -min(age / 100, 1)
-            }
-
+        feature_names = [
+            "Age",
+            "Income",
+            "CD Account",
+            "Mortgage",
+            "Education",
+            "CCAvg",
+            "CCToIncomeRatio"
         ]
+
+        feature_values = [
+            age,
+            income,
+            cd_account,
+            mortgage,
+            education,
+            ccavg,
+            cc_to_income_ratio
+        ]
+
+        final_model = model.steps[-1][1]
+        print(final_model)
+        importances = final_model.feature_importances_
+
+        analysis_data = []
+
+        for feature, value, importance in zip(
+            feature_names,
+            feature_values,
+            importances
+        ):
+
+            contribution = importance * probability
+
+            analysis_data.append({
+                "feature": feature,
+                "value": round(value, 2),
+                "impact": round(contribution, 3)
+            })
 
         return jsonify({
             "prediction": int(prediction),
