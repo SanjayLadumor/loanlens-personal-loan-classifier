@@ -664,10 +664,50 @@ async function updateFeatureEffects() {
         // MODEL CONFIDENCE
         // =====================
 
-        document.querySelector(
-            ".bottomflxxx"
-        ).innerText =
+        const confidenceElement =
+            document.querySelector(
+                ".bottomflxxx"
+            );
+
+        confidenceElement.innerText =
             data.probability.toFixed(3);
+
+        // REMOVE OLD COLORS
+        confidenceElement.classList.remove(
+            "text-red-400",
+            "text-yellow-400",
+            "text-green-400",
+            "text-cyan-400"
+        );
+
+        // ADD NEW COLORS
+        if (data.probability < 0.35) {
+
+            confidenceElement.classList.add(
+                "text-red-400"
+            );
+        }
+
+        else if (data.probability < 0.60) {
+
+            confidenceElement.classList.add(
+                "text-yellow-400"
+            );
+        }
+
+        else if (data.probability < 0.80) {
+
+            confidenceElement.classList.add(
+                "text-green-400"
+            );
+        }
+
+        else {
+
+            confidenceElement.classList.add(
+                "text-cyan-400"
+            );
+        }
 
         // =====================
         // FEATURE IMPACTS
@@ -725,9 +765,55 @@ async function updateFeatureEffects() {
 
             if (id !== "") {
 
-                document.getElementById(id)
-                    .innerText =
+                const impactText =
+                    document.getElementById(id);
+
+                impactText.innerText =
                     shap.toFixed(3);
+
+                // REMOVE OLD COLORS
+                impactText.classList.remove(
+                    "text-cyan-300",
+                    "text-green-300",
+                    "text-pink-300",
+                    "text-red-400"
+                );
+
+                // POSITIVE FEATURES
+                if (shap >= 0) {
+
+                    if (shap > 0.08) {
+
+                        impactText.classList.add(
+                            "text-cyan-300"
+                        );
+                    }
+
+                    else {
+
+                        impactText.classList.add(
+                            "text-green-300"
+                        );
+                    }
+                }
+
+                // NEGATIVE FEATURES
+                else {
+
+                    if (shap < -0.08) {
+
+                        impactText.classList.add(
+                            "text-red-400"
+                        );
+                    }
+
+                    else {
+
+                        impactText.classList.add(
+                            "text-pink-300"
+                        );
+                    }
+                }
 
                 const currentBar =
                     document.getElementById(bar);
