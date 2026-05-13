@@ -506,13 +506,13 @@
                 <div class="txtonee font-bold">
                   Income
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="incomeValue">
                   200
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="0" max="203" value="75" id="featureIncome">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -526,13 +526,13 @@
                 <div class="txtonee font-bold">
                   CCAvg
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="ccavgValue">
                   10
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="0" max="10" step="0.1" value="2" id="featureCCAvg">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -549,13 +549,13 @@
                 <div class="txtonee font-bold">
                   Education
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="educationValue">
                   3
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="1" max="3" step="1" value="1" id="featureEducation">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -569,13 +569,13 @@
                 <div class="txtonee font-bold">
                   CD Account
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="cdValue">
                   1
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="0" max="1" value="0" step="1" id="featureCD">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -592,13 +592,13 @@
                 <div class="txtonee font-bold">
                   Mortgage
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="mortgageValue">
                   120
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="0" max="700" value="120" id="featureMortgage">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -612,13 +612,13 @@
                 <div class="txtonee font-bold">
                   Age
                 </div>
-                <div class="txttwoo">
+                <div class="txttwoo" id="ageValue">
                   20
                 </div>
               </div>
               <div class="barheree">
                 <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="incomeSlider">
+                  <input type="range" min="0" max="80" value="25" id="featureAge">
                 </div>
               </div>
               <div class="endpoints flex justify-between text-[10px]">
@@ -713,13 +713,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       CD Account
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactCD">
                       0.11
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barCD" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -729,13 +732,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       Education
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactEducation">
                       0.09
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barEducation" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -745,13 +751,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       Income
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactIncome">
                       0.08
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barIncome" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -761,13 +770,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       CCAvg
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactCCAvg">
                       0.06
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barCCAvg" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -777,13 +789,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       Age
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactAge">
                       0.03
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barAge" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -793,13 +808,16 @@
                     <div class="featuretype font-bold text-[10px]">
                       Mortgage
                     </div>
-                    <div class="featureprobability font-bold text-[10px]">
+                    <div class="featureprobability font-bold text-[10px]" id="impactMortgage">
                       -0.02
                     </div>
                   </div>
                   <div class="featurebarr">
-                    <div
-                      style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden; position:relative">
+                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+
+                      <div id="barMortgage" style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
+                      </div>
+
                     </div>
                   </div>
                 </div>

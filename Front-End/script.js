@@ -526,5 +526,268 @@ function setFeatureGauge(value) {
         value + "%";
 }
 
-// TEST
-setFeatureGauge(22);
+
+// =========================
+// FEATURE EFFECT LIVE MODEL
+// =========================
+
+const featureInputs = {
+
+    age:
+        document.getElementById("featureAge"),
+
+    income:
+        document.getElementById("featureIncome"),
+
+    ccavg:
+        document.getElementById("featureCCAvg"),
+
+    education:
+        document.getElementById("featureEducation"),
+
+    cd_account:
+        document.getElementById("featureCD"),
+
+    mortgage:
+        document.getElementById("featureMortgage")
+};
+
+async function updateFeatureEffects() {
+
+    if (updateFeatureEffects.loading) return;
+
+    updateFeatureEffects.loading = true;
+
+    // LIVE VALUE TEXT
+    document.getElementById("ageValue")
+        .innerText = featureInputs.age.value;
+
+    document.getElementById("incomeValue")
+        .innerText = featureInputs.income.value;
+
+    document.getElementById("ccavgValue")
+        .innerText = featureInputs.ccavg.value;
+
+    document.getElementById("educationValue")
+        .innerText = featureInputs.education.value;
+
+    document.getElementById("cdValue")
+        .innerText = featureInputs.cd_account.value;
+
+    document.getElementById("mortgageValue")
+        .innerText = featureInputs.mortgage.value;
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:5000/predict",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    age:
+                        featureInputs.age.value,
+
+                    income:
+                        featureInputs.income.value,
+
+                    ccavg:
+                        featureInputs.ccavg.value,
+
+                    education:
+                        featureInputs.education.value,
+
+                    cd_account:
+                        featureInputs.cd_account.value,
+
+                    mortgage:
+                        featureInputs.mortgage.value
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        // =====================
+        // GAUGE UPDATE
+        // =====================
+
+        const probability =
+            Math.round(
+                data.probability * 100
+            );
+
+        setFeatureGauge(probability);
+
+        // =====================
+        // ACCEPT / REJECT
+        // =====================
+
+        const status =
+            document.querySelector(
+                ".acceptorrejecttxt"
+            );
+
+        if (data.prediction === 1) {
+
+            status.innerText = "Accept";
+
+            status.classList.remove(
+                "text-red-400"
+            );
+
+            status.classList.add(
+                "text-green-400"
+            );
+        }
+
+        else {
+
+            status.innerText = "Reject";
+
+            status.classList.remove(
+                "text-green-400"
+            );
+
+            status.classList.add(
+                "text-red-400"
+            );
+        }
+
+        // =====================
+        // MODEL CONFIDENCE
+        // =====================
+
+        document.querySelector(
+            ".bottomflxxx"
+        ).innerText =
+            data.probability.toFixed(3);
+
+        // =====================
+        // FEATURE IMPACTS
+        // =====================
+
+        data.shap_values.forEach(item => {
+
+            const feature =
+                item.feature;
+
+            const shap =
+                item.shap_value;
+
+            const width =
+                Math.max(
+                    8,
+                    Math.min(
+                        Math.abs(shap) * 1200,
+                        100
+                    )
+                );
+
+            let id = "";
+            let bar = "";
+
+            if (feature === "Income") {
+                id = "impactIncome";
+                bar = "barIncome";
+            }
+
+            if (feature === "CCAvg") {
+                id = "impactCCAvg";
+                bar = "barCCAvg";
+            }
+
+            if (feature === "Education") {
+                id = "impactEducation";
+                bar = "barEducation";
+            }
+
+            if (feature === "CD Account") {
+                id = "impactCD";
+                bar = "barCD";
+            }
+
+            if (feature === "Mortgage") {
+                id = "impactMortgage";
+                bar = "barMortgage";
+            }
+
+            if (feature === "Age") {
+                id = "impactAge";
+                bar = "barAge";
+            }
+
+            if (id !== "") {
+
+                document.getElementById(id)
+                    .innerText =
+                    shap.toFixed(3);
+
+                const currentBar =
+                    document.getElementById(bar);
+
+                if (!currentBar) return;
+
+                currentBar.style.width =
+                    width + "%";
+
+                if (shap >= 0) {
+
+                    currentBar.style.background =
+                        "linear-gradient(to right,#00e5ff,#00ffae)";
+                }
+
+                else {
+
+                    currentBar.style.background =
+                        "linear-gradient(to right,#ff2d95,#ff1f5a)";
+                }
+            }
+
+        });
+
+        updateFeatureEffects.loading = false;
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+        updateFeatureEffects.loading = false;
+    }
+}
+
+// =========================
+// LIVE LISTENERS
+// =========================
+
+let featureTimeout;
+
+Object.values(featureInputs)
+    .forEach(input => {
+
+        input.addEventListener(
+            "input",
+
+            () => {
+
+                clearTimeout(featureTimeout);
+
+                featureTimeout =
+                    setTimeout(() => {
+
+                        updateFeatureEffects();
+
+                    }, 120);
+            }
+        );
+    });
+
+// INITIAL LOAD
+updateFeatureEffects();
