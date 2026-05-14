@@ -37,7 +37,7 @@
 
     <!-- Navbar Here -->
 
-    <nav class="p-1.5 pl-4 pr-4 flex border-b border-t border-white items-center justify-between w-full">
+    <nav class="p-1.5 pl-4 pr-4 flex border-b border-t border-white items-center justify-between w-full max-sm:flex-col">
       <div class="logo flex flex-col items-center cursor-default">
         <div class="namehere text-4xl">
           LoanLens
@@ -67,9 +67,9 @@
   </div>
 
   <!-- Prediction Page -->
-  <div id="predictionpage" class="predictionpage p-2 flex">
+  <div id="predictionpage" class="predictionpage p-2 flex max-sm:flex-col ">
 
-    <div class="form text-white m-2 border rounded-2xl p-3 w-[30vw]">
+    <div class="form text-white m-2 border rounded-2xl p-3 w-[30vw] max-sm:w-full">
       <div class="heading flex flex-col">
         <div class="title text-[18px] font-bold">
           Loan Prediction
@@ -133,7 +133,7 @@
     <div class="secondsection m-2 w-full">
       <div class="resultsection bg-[#091225] rounded-3xl border border-[#192543]">
 
-        <div class="toptwo flex items-center">
+        <div class="toptwo flex items-center max-sm:flex-col max-sm:justify-center max-sm:items-center">
           <div class="meter flex items-center gap-10 p-5">
             <!-- Meter -->
             <div class="relative w-52.5 h-28.75 overflow-hidden">
@@ -155,12 +155,12 @@
           </div>
 
           <div class="acceptorreject">
-            <div class="acceptbtn">
+            <div class="acceptbtn max-sm:flex max-sm:justify-center">
               <button class="text-white border p-2 mb-2 text-[10px] bg-[#17274e] rounded-2xl">
                 Customer is likely to
               </button>
             </div>
-            <div id="resultText" class="accepttext font-bold mb-3 text-green-400 text-3xl cursor-default">
+            <div id="resultText" class="accepttext max-sm:flex max-sm:justify-center font-bold mb-3 text-green-400 text-3xl cursor-default">
               Accept
             </div>
             <div id="resultDescription" class="description text-[10px] text-slate-500">

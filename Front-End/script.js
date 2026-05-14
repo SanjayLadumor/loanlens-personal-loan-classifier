@@ -187,20 +187,20 @@ function renderAnalysis(
         <div style="
             display:flex;
             align-items:center;
-            gap:6px;
+            gap:8px;
             min-height:28px;
             width:100%;
-        ">
+        " class="max-sm:flex-col max-sm:items-start">
 
             <!-- WATERFALL VALUES -->
             <div style="
-                width:115px;
+                width:90px;
                 text-align:right;
                 font-size:12px;
                 color:#94a3b8;
                 font-family:monospace;
                 flex-shrink:0;
-            ">
+            " class="max-sm:w-full max-sm:text-left">
 
                 ${previousValue.toFixed(2)}
 
@@ -216,11 +216,11 @@ function renderAnalysis(
 
             <!-- FEATURE LABEL -->
             <div style="
-                width:165px;
+                width:120px;
                 text-align:right;
                 font-size:12px;
                 flex-shrink:0;
-            ">
+            " class="max-sm:w-full max-sm:text-left">
 
                 <span style="color:#64748b;">
                     ${item.value}
@@ -238,13 +238,12 @@ function renderAnalysis(
 
             <!-- BAR TRACK -->
             <div style="
-                flex:1;
                 height:14px;
                 background:#121c38;
                 border-radius:999px;
                 overflow:hidden;
                 position:relative;
-                min-width:200px;
+                width:100%;
             ">
 
                 <!-- BAR -->
