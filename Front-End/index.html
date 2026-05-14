@@ -66,795 +66,1222 @@
 
   </div>
 
-  <!-- Prediction Page -->
-  <div id="predictionpage" class="predictionpage p-2 flex max-sm:flex-col ">
+<!-- Prediction Page -->
+<div id="predictionpage" class="predictionpage p-2 flex max-sm:flex-col ">
 
-    <div class="form text-white m-2 border rounded-2xl p-3 w-[30vw] max-sm:w-full">
-      <div class="heading flex flex-col">
-        <div class="title text-[18px] font-bold">
-          Loan Prediction
-        </div>
-        <div class="preheading text-[10px] text-slate-400">
-          Predict whether the customer will accept the personal loan offer
-        </div>
+  <div class="form text-white m-2 border rounded-2xl p-3 w-[30vw] max-sm:w-full">
+    <div class="heading flex flex-col">
+      <div class="title text-[18px] font-bold">
+        Loan Prediction
       </div>
 
-      <!-- Form Here -->
+      <div class="preheading text-[10px] text-slate-400">
+        Predict whether the customer will accept the personal loan offer
+      </div>
+    </div>
 
-      <div class="formstart mt-3">
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">Age</label>
-          <input id="age" type="number" placeholder="Enter Age" enterkeyhint="next"
-            class="w-full bg-white/5 border border-white/10 placeholder:text-[11px] rounded-lg px-4 py-3 text-white placeholder-slate-600 outline-none mb-2 text-[14px] focus:border-[#63E6FF] transition-colors h-4">
-        </div>
+    <div class="formstart mt-3">
 
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">Annual Income (1 = $1000)</label>
-          <input id="income" type="text" placeholder="Enter Annual Income (USD)"
-            class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] mb-2 focus:border-[#63E6FF] transition-colors">
-        </div>
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          Age
+        </label>
 
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">Credit Card Avg Spend (1=$1000)</label>
-          <input id="ccavg" type="text" placeholder="Enter Credit Card Avg Spend"
-            class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] mb-2 focus:border-[#63E6FF] transition-colors">
-        </div>
-
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">CD Account (0 / 1)</label>
-          <input id="cdaccount" type="text" placeholder="Enter CD Account (0 / 1)"
-            class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] mb-2 transition-colors">
-        </div>
-
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">Mortgage (1 = $1000)</label>
-          <input id="mortgage" type="text" placeholder="Enter Mortgage (USD)"
-            class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
-        </div>
-
-        <div>
-          <label class="block text-slate-300 text-[12px] font-medium mb-1">Education</label>
-          <select id="education"
-            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-1 text-white outline-none cursor-pointer text-[14px] focus:border-[#63E6FF] transition-colors mb-2 placeholder:text-[11px] h-8">
-            <option value="1" class="bg-[#0D1520] placeholder:text-[11px]" selected>1 - Undergraduate</option>
-            <option value="2" class="bg-[#0D1520] placeholder:text-[11px]">2 - Graduate</option>
-            <option value="3" class="bg-[#0D1520] placeholder:text-[11px]">3 - Professional</option>
-          </select>
-        </div>
+        <input
+          id="age"
+          type="number"
+          min="18"
+          max="100"
+          placeholder="Enter Age"
+          enterkeyhint="next"
+          class="w-full bg-white/5 border border-white/10 placeholder:text-[11px] rounded-lg px-4 py-3 text-white placeholder-slate-600 outline-none mb-2 text-[14px] focus:border-[#63E6FF] transition-colors h-4"
+        >
       </div>
 
-      <button id="predictBtn"
-        class="w-full py-2 px-4 cursor-pointer rounded-lg font-bold text-white bg-linear-to-r from-[#00D2FF] via-[#3A7BD5] to-[#9D50BB] hover:opacity-90 transition-opacity duration-200 shadow-lg">
-        Predict Loan Acceptance
-      </button>
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          Annual Income (1 = $1000)
+        </label>
+
+        <input id="income" type="text" placeholder="Enter Annual Income (USD)"
+          class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] mb-2 focus:border-[#63E6FF] transition-colors">
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          Credit Card Avg Spend (1=$1000)
+        </label>
+
+        <input id="ccavg" type="text" placeholder="Enter Credit Card Avg Spend"
+          class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] mb-2 focus:border-[#63E6FF] transition-colors">
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          CD Account (0 / 1)
+        </label>
+
+        <input id="cdaccount" type="text" placeholder="Enter CD Account (0 / 1)"
+          class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] mb-2 transition-colors">
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          Mortgage (1 = $1000)
+        </label>
+
+        <input id="mortgage" type="text" placeholder="Enter Mortgage (USD)"
+          class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-[12px] font-medium mb-1">
+          Education
+        </label>
+
+        <select id="education"
+          class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-1 text-white outline-none cursor-pointer text-[14px] focus:border-[#63E6FF] transition-colors mb-2 placeholder:text-[11px] h-8">
+
+          <option value="1" class="bg-[#0D1520]" selected>
+            1 - Undergraduate
+          </option>
+
+          <option value="2" class="bg-[#0D1520]">
+            2 - Graduate
+          </option>
+
+          <option value="3" class="bg-[#0D1520]">
+            3 - Professional
+          </option>
+
+        </select>
+      </div>
 
     </div>
 
-    <div class="secondsection m-2 w-full">
-      <div class="resultsection bg-[#091225] rounded-3xl border border-[#192543]">
+    <button id="predictBtn"
+      class="w-full py-2 px-4 cursor-pointer rounded-lg font-bold text-white bg-linear-to-r from-[#00D2FF] via-[#3A7BD5] to-[#9D50BB] hover:opacity-90 transition-opacity duration-200 shadow-lg">
 
-        <div class="toptwo flex items-center max-sm:flex-col max-sm:justify-center max-sm:items-center">
-          <div class="meter flex items-center gap-10 p-5">
-            <!-- Meter -->
-            <div class="relative w-52.5 h-28.75 overflow-hidden">
+      Predict Loan Acceptance
 
-              <div id="gauge" class="transition-all duration-1000 absolute w-52.5 h-52.5 rounded-full"></div>
+    </button>
 
-              <div class="absolute top-5.5 left-5.5 w-41.5 h-41.5 bg-[#091225] rounded-full"></div>
-
-              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
-                <h1 id="percentageText" class="text-3xl font-bold text-cyan-300">
-                  92%
-                </h1>
-                <p class="text-slate-400 mt-1 text-[10px]">
-                  Acceptance Probability
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="acceptorreject">
-            <div class="acceptbtn max-sm:flex max-sm:justify-center">
-              <button class="text-white border p-2 mb-2 text-[10px] bg-[#17274e] rounded-2xl">
-                Customer is likely to
-              </button>
-            </div>
-            <div id="resultText" class="accepttext max-sm:flex max-sm:justify-center font-bold mb-3 text-green-400 text-3xl cursor-default">
-              Accept
-            </div>
-            <div id="resultDescription" class="description text-[10px] text-slate-500">
-              Based on the customer's financial profile and spending behaviour, there is a very high chance that this
-              customer will accept the personal loan offer.
-            </div>
-
-          </div>
-        </div>
-
-        <div class="downbtns flex justify-center w-full p-2 gap-2">
-          <div class="btnone w-full">
-            <button
-              class="items-center text-[10px] w-full justify-center bg-[#17274e] text-white p-2 rounded-2xl cursor-pointer hover:border-blue-700 border border-[#17274e]">
-              Import CSV & Predict All
-            </button>
-          </div>
-          <div class="btntwo w-full">
-            <button
-              class="items-center text-[10px] w-full justify-center bg-[#17274e] text-white p-2 rounded-2xl cursor-pointer hover:border-blue-700 border border-[#17274e]">
-              Download Predictions CSV
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="predictionsection bg-[#091225] rounded-3xl border border-[#192543] mt-3 p-3">
-
-        <div class="scoreh flex justify-between">
-          <div class="box1">
-            <div class="headingh text-white font-bold text-[16px]">
-              Prediction Breakdown
-            </div>
-            <div class="subhead text-slate-500 text-[10px]">
-              Feature impact on prediction
-            </div>
-          </div>
-          <div class="box2 flex flex-col justify-center items-center">
-            <div class="h11 text-slate-500 text-[8px]">
-              Final Score
-            </div>
-            <div id="finalScore" class="scorehere text-[20px] font-bold text-blue-400">
-              0.999
-            </div>
-          </div>
-        </div>
-
-        <div id="analysisContainer" class="bg-[#091225] rounded-3xl p-4 flex flex-col gap-4">
-        </div>
-
-      </div>
-
-    </div>
   </div>
 
+  <div class="secondsection m-2 w-full">
+
+    <div class="resultsection bg-[#091225] rounded-3xl border border-[#192543]">
+
+      <div class="toptwo flex items-center max-sm:flex-col max-sm:justify-center max-sm:items-center">
+
+        <!-- FIXED SEMICIRCLE SECTION -->
+        <div class="meter flex items-center gap-10 p-5">
+
+          <div style="
+            width:220px;
+            height:120px;
+            position:relative;
+            overflow:hidden;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+          ">
+
+            <svg
+              width="220"
+              height="120"
+              viewBox="0 0 220 120"
+              style="
+                position:absolute;
+                top:0;
+                left:0;
+              ">
+
+              <!-- TRACK -->
+              <path
+                d="M20 110 A90 90 0 0 1 200 110"
+                fill="none"
+                stroke="#1e293b"
+                stroke-width="18"
+                stroke-linecap="round" />
+
+              <!-- PROGRESS -->
+              <path
+                id="gauge"
+                d="M20 110 A90 90 0 0 1 200 110"
+                fill="none"
+                stroke="url(#gaugeGradient)"
+                stroke-width="18"
+                stroke-linecap="round"
+                stroke-dasharray="283"
+                stroke-dashoffset="141"
+                style="
+                  transition:all 1s ease;
+                " />
+
+              <!-- GRADIENT -->
+              <defs>
+                <linearGradient
+                  id="gaugeGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%">
+
+                  <stop offset="0%" stop-color="#00d2ff" />
+                  <stop offset="25%" stop-color="#3a86ff" />
+                  <stop offset="50%" stop-color="#7b61ff" />
+                  <stop offset="75%" stop-color="#ff2d95" />
+                  <stop offset="100%" stop-color="#ff0055" />
+
+                </linearGradient>
+              </defs>
+
+            </svg>
+
+            <!-- TEXT -->
+            <div style="
+              position:absolute;
+              bottom:8px;
+              left:50%;
+              transform:translateX(-50%);
+              text-align:center;
+            ">
+
+              <h1
+                id="percentageText"
+                style="
+                  font-size:32px;
+                  font-weight:bold;
+                  color:#67e8f9;
+                  line-height:1;
+                ">
+
+                50%
+
+              </h1>
+
+              <p style="
+                color:#64748b;
+                font-size:10px;
+                margin-top:4px;
+              ">
+
+                Acceptance Probability
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="acceptorreject">
+
+          <div class="acceptbtn max-sm:flex max-sm:justify-center">
+
+            <button class="text-white border p-2 mb-2 text-[10px] bg-[#17274e] rounded-2xl">
+              Customer is likely to
+            </button>
+
+          </div>
+
+          <div id="resultText"
+            class="accepttext max-sm:flex max-sm:justify-center font-bold mb-3 text-green-400 text-3xl cursor-default">
+
+            Accept
+
+          </div>
+
+          <div id="resultDescription"
+            class="description text-[10px] text-slate-500">
+
+            Based on the customer's financial profile and spending behaviour, there is a very high chance that this
+            customer will accept the personal loan offer.
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="downbtns flex justify-center w-full p-2 gap-2">
+
+        <div class="btnone w-full">
+
+          <button
+            class="items-center text-[10px] w-full justify-center bg-[#17274e] text-white p-2 rounded-2xl cursor-pointer hover:border-blue-700 border border-[#17274e]">
+
+            Import CSV & Predict All
+
+          </button>
+
+        </div>
+
+        <div class="btntwo w-full">
+
+          <button
+            class="items-center text-[10px] w-full justify-center bg-[#17274e] text-white p-2 rounded-2xl cursor-pointer hover:border-blue-700 border border-[#17274e]">
+
+            Download Predictions CSV
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="predictionsection bg-[#091225] rounded-3xl border border-[#192543] mt-3 p-3">
+
+      <div class="scoreh flex justify-between">
+
+        <div class="box1">
+
+          <div class="headingh text-white font-bold text-[16px]">
+            Prediction Breakdown
+          </div>
+
+          <div class="subhead text-slate-500 text-[10px]">
+            Feature impact on prediction
+          </div>
+
+        </div>
+
+        <div class="box2 flex flex-col justify-center items-center">
+
+          <div class="h11 text-slate-500 text-[8px]">
+            Final Score
+          </div>
+
+          <div id="finalScore"
+            class="scorehere text-[20px] font-bold text-blue-400">
+
+            0.999
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="analysisContainer"
+        class="bg-[#091225] rounded-3xl p-4 flex flex-col gap-4">
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
   <!-- Analysis Page -->
 
-  <div id="analysispage" class="w-full analysispage hidden text-white p-1">
-    <div class="threepages flex max-sm:flex-col">
+<div id="analysispage" class="w-full analysispage hidden text-white p-1">
 
-      <div class="sectiononehere w-[20vw] m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] max-sm:w-full">
-        <div class="topbox flex justify-between items-center">
-          <div class="headingbox flex flex-col justify-center items-center">
-            <div class="head text-[20px] font-bold">
-              Smart Filters
-            </div>
-            <div class="subhead text-[10px] text-slate-500">
-              Dynamic Pandas Filtering
-            </div>
-          </div>
-          <div
-            class="uploadbutton text-[10px] w-fit justify-center bg-[#17274e] text-white p-2 cursor-pointer rounded-2xl hover:border-blue-700 border border-[#17274e]">
-            <button class="cursor-pointer">
-              Upload Dataset
-            </button>
-          </div>
-        </div>
-        <div class="allbuttons mt-2 h-[45vh] overflow-y-auto overflow-x-hidden">
+  <div class="threepages flex max-sm:flex-col">
 
-          <div class="rowone flex gap-2">
-            <div class="agebox bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Age</label>
-              <input id="agebox" type="text" placeholder="Age"
-                class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
-            </div>
-            <div class="experiencebox bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Experience</label>
-              <input id="experiencebox" type="text" placeholder="Years"
-                class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
-            </div>
+    <!-- LEFT FILTER SECTION -->
+
+    <div class="sectiononehere w-[20vw] m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] max-sm:w-full">
+
+      <div class="topbox flex justify-between items-center">
+
+        <div class="headingbox flex flex-col justify-center items-center">
+
+          <div class="head text-[20px] font-bold">
+            Smart Filters
           </div>
 
-          <div class="rowtwo flex gap-2 mt-2">
-            <div class="zipcodebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">ZIP Code</label>
-              <input id="zipcode" type="text" placeholder="ZIP"
-                class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
-            </div>
-            <div class="incomebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Income(x1000$)</label>
-              <div class="sliderwrap">
-                <input type="range" width="85px" min="0" max="203" value="0" id="analysisIncome">
-              </div>
-              <div id="analysisIncomeText" class="text-[10px] text-cyan-300 mt-1">
-                0
-              </div>
-            </div>
-          </div>
-
-          <div class="rowthree flex gap-2 mt-2">
-            <div class="ccavgbox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">CCAvg(x1000$)</label>
-              <div class="sliderwrap">
-                <input width="85px" type="range" min="0" max="10" value="0" id="analysisCCAvg">
-              </div>
-              <div id="analysisCCAvgText" class="text-[10px] text-cyan-300 mt-1">
-                0
-              </div>
-            </div>
-            <div class="mortgagebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Mortgage</label>
-              <div class="sliderwrap">
-                <input width="85px" type="range" min="0" max="700" value="0" id="analysisMortgage">
-              </div>
-              <div id="analysisMortgageText" class="text-[10px] text-cyan-300 mt-1">
-                0
-              </div>
-            </div>
-          </div>
-
-          <div class="rowfour flex gap-2 mt-2">
-            <div class="familybox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Family</label>
-              <div class="filterBtns flex items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">1</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">2</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">3</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">4</button>
-              </div>
-            </div>
-            <div class="educationbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Education</label>
-              <div class="filterBtns flex justify-center items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">1</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">2</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">3</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="rowfive flex gap-2 mt-2">
-            <div class="loanbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Loan</label>
-              <div class="filterBtns flex items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">1</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">2</button>
-              </div>
-            </div>
-            <div class="securitiesaccountbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Securities Account</label>
-              <div class="filterBtns flex justify-center items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="rowsix flex gap-2 mt-2">
-            <div class="cdaccountbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">CD Account</label>
-              <div class="filterBtns flex items-center gap-1">
-                <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
-              </div>
-            </div>
-            <div class="onlinebankingbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Online Banking</label>
-              <div class="filterBtns flex justify-center items-center gap-1">
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="rowsix">
-            <div class="creditcardbox bg-[#0b1326] rounded-lg p-2 w-1/2 mt-2 border border-[#17274e]">
-              <label class="block text-slate-300 text-[10px] font-bold mb-1">Credit Card</label>
-              <div class="filterBtns flex items-center gap-1">
-                <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
-                <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
-              </div>
-            </div>
+          <div class="subhead text-[10px] text-slate-500">
+            Dynamic Pandas Filtering
           </div>
 
         </div>
 
-        <div class="showresults mt-4">
-          <button
-            class="w-full py-2 px-4 cursor-pointer rounded-4xl font-bold text-white bg-linear-to-r from-[#00D2FF] via-[#3A7BD5] to-[#9D50BB] hover:opacity-90 transition-opacity duration-200 shadow-lg">
-            Show Results
+        <div
+          class="uploadbutton text-[10px] w-fit justify-center bg-[#17274e] text-white p-2 cursor-pointer rounded-2xl hover:border-blue-700 border border-[#17274e]">
+
+          <button class="cursor-pointer">
+            Upload Dataset
           </button>
-        </div>
 
-        <div class="texthere text-[10px] text-slate-500 mt-3 cursor-default">
-          Uploaded datasets must contain the same columns as the default bank dataset. Slider ranges automatically adapt
-          according to uploaded dataset values.
         </div>
 
       </div>
 
-      <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[60vw] max-sm:w-full">
-        <div class="topsectionh p-2 flex justify-between items-center">
-          <div class="box1text flex flex-col">
-            <div class="honehere text-[20px] font-bold">
-              Customer Dataset
-            </div>
-            <div class="subhline text-[10px] text-slate-500">
-              Live filtered rows from backend
-            </div>
+      <div class="allbuttons mt-2 h-[45vh] overflow-y-auto overflow-x-hidden">
+
+        <div class="rowone flex gap-2">
+
+          <div class="agebox bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Age
+            </label>
+
+            <input id="agebox" type="text" placeholder="Age"
+              class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
+
           </div>
-          <div class="btnhere">
-            <button class="bg-white/5 border border-white/10 cursor-pointer rounded-[10px] p-2">
-              Export CSV
-            </button>
+
+          <div class="experiencebox bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Experience
+            </label>
+
+            <input id="experiencebox" type="text" placeholder="Years"
+              class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
+
           </div>
+
         </div>
 
-        <div id="analysisTable" class="tablehere">
+        <div class="rowtwo flex gap-2 mt-2">
+
+          <div class="zipcodebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              ZIP Code
+            </label>
+
+            <input id="zipcode" type="text" placeholder="ZIP"
+              class="w-full bg-white/5 border placeholder:text-[11px] border-white/10 rounded-lg mb-2 px-4 py-3 text-white placeholder-slate-600 h-4 outline-none text-[14px] focus:border-[#63E6FF] transition-colors">
+
+          </div>
+
+          <div class="incomebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Income(x1000$)
+            </label>
+
+            <div class="sliderwrap">
+              <input type="range" width="85px" min="0" max="203" value="0" id="analysisIncome">
+            </div>
+
+            <div id="analysisIncomeText" class="text-[10px] text-cyan-300 mt-1">
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="rowthree flex gap-2 mt-2">
+
+          <div class="ccavgbox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              CCAvg(x1000$)
+            </label>
+
+            <div class="sliderwrap">
+              <input width="85px" type="range" min="0" max="10" value="0" id="analysisCCAvg">
+            </div>
+
+            <div id="analysisCCAvgText" class="text-[10px] text-cyan-300 mt-1">
+              0
+            </div>
+
+          </div>
+
+          <div class="mortgagebox w-1/2 bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Mortgage
+            </label>
+
+            <div class="sliderwrap">
+              <input width="85px" type="range" min="0" max="700" value="0" id="analysisMortgage">
+            </div>
+
+            <div id="analysisMortgageText" class="text-[10px] text-cyan-300 mt-1">
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="rowfour flex gap-2 mt-2">
+
+          <div class="familybox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Family
+            </label>
+
+            <div class="filterBtns flex items-center gap-1">
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">1</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">2</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">3</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-4.5 h-4">4</button>
+            </div>
+
+          </div>
+
+          <div class="educationbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Education
+            </label>
+
+            <div class="filterBtns flex justify-center items-center gap-1">
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">1</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">2</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-6 h-6">3</button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="rowfive flex gap-2 mt-2">
+
+          <div class="loanbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Loan
+            </label>
+
+            <div class="filterBtns flex items-center gap-1">
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">1</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">2</button>
+            </div>
+
+          </div>
+
+          <div class="securitiesaccountbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Securities Account
+            </label>
+
+            <div class="filterBtns flex justify-center items-center gap-1">
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="rowsix flex gap-2 mt-2">
+
+          <div class="cdaccountbox bg-[#0b1326] rounded-lg p-2 w-1/2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              CD Account
+            </label>
+
+            <div class="filterBtns flex items-center gap-1">
+              <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+            </div>
+
+          </div>
+
+          <div class="onlinebankingbox bg-[#0b1326] rounded-lg w-1/2 p-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Online Banking
+            </label>
+
+            <div class="filterBtns flex justify-center items-center gap-1">
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="rowsix">
+
+          <div class="creditcardbox bg-[#0b1326] rounded-lg p-2 w-1/2 mt-2 border border-[#17274e]">
+
+            <label class="block text-slate-300 text-[10px] font-bold mb-1">
+              Credit Card
+            </label>
+
+            <div class="filterBtns flex items-center gap-1">
+              <button selected class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">Yes</button>
+              <button class="text-[8px] bg-white/5 border border-white/10 rounded-sm w-1/2 h-6">No</button>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
-      <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[20vw] max-sm:w-full">
-        <div class="allboxeshere p-2 flex flex-col gap2">
-          <div class="box1 bg-[#0b1326] rounded-lg p-2 gap-2 flex flex-col mt-2 border border-[#17274e] w-full">
-            <div class="smalltxt text-[8px] text-slate-500">
-              TOTAL ROWS
-            </div>
-            <div id="totalRows" class="numberh text-[20px] font-bold">
-              1233
-            </div>
-          </div>
+      <div class="showresults mt-4">
 
-          <div class="box2 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
-            <div class="smalltxt text-[8px] text-slate-500">
-              AVERAGE INCOME
-            </div>
-            <div id="avgIncome" class="numberh text-[20px] font-bold">
-              82K
-            </div>
-          </div>
+        <button
+          class="w-full py-2 px-4 cursor-pointer rounded-4xl font-bold text-white bg-linear-to-r from-[#00D2FF] via-[#3A7BD5] to-[#9D50BB] hover:opacity-90 transition-opacity duration-200 shadow-lg">
 
-          <div class="box3 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
-            <div class="smalltxt text-[8px] text-slate-500">
-              TOOK LOAN
-            </div>
-            <div id="loanPercent" class="numberh text-[20px] font-bold">
-              67%
-            </div>
-          </div>
+          Show Results
 
-          <div class="box4 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
-            <div class="smalltxt text-[8px] text-slate-500">
-              CD ACCOUNT HOLDERS
-            </div>
-            <div id="cdPercent" class="numberh text-[20px] font-bold">
-              31%
-            </div>
-          </div>
+        </button>
 
-          <div class="box5 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
-            <div class="smalltxt text-[8px] text-slate-500">
-              EDUCATION COUNT
-            </div>
-            <div class="educationbars flex flex-col">
-              <div class="educationbar1">
-                <div class="numberh flex justify-between text-[10px] ">
-                  <div class="headonr">
-                    Education 1
-                  </div>
-                  <div id="edu1Count" class="headtwor">
-                    428
-                  </div>
-                </div>
-                <div
-                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
-                  <div id="edu1Bar"
-                    style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
-                  </div>
-                </div>
-              </div>
+      </div>
 
-              <div class="educationbar2 mt-1">
-                <div class="numberh flex justify-between text-[10px] ">
-                  <div class="headonr">
-                    Education 2
-                  </div>
-                  <div id="edu2Count" class="headtwor">
-                    428
-                  </div>
-                </div>
-                <div
-                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
-                  <div id="edu2Bar"
-                    style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
-                  </div>
-                </div>
-              </div>
-
-              <div class="educationbar3 mt-1">
-                <div class="numberh flex justify-between text-[10px] ">
-                  <div class="headonr">
-                    Education 3
-                  </div>
-                  <div id="edu3Count" class="headtwor">
-                    428
-                  </div>
-                </div>
-                <div
-                  style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
-                  <div id="edu3Bar"
-                    style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="texthere text-[10px] text-slate-500 mt-3 cursor-default">
+        Uploaded datasets must contain the same columns as the default bank dataset. Slider ranges automatically adapt
+        according to uploaded dataset values.
       </div>
 
     </div>
+
+    <!-- CENTER TABLE SECTION -->
+
+    <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[60vw] max-sm:w-full overflow-hidden">
+
+      <div class="topsectionh p-2 flex justify-between items-center">
+
+        <div class="box1text flex flex-col">
+
+          <div class="honehere text-[20px] font-bold">
+            Customer Dataset
+          </div>
+
+          <div class="subhline text-[10px] text-slate-500">
+            Live filtered rows from backend
+          </div>
+
+        </div>
+
+        <div class="btnhere">
+
+          <button class="bg-white/5 border border-white/10 cursor-pointer rounded-[10px] p-2">
+            Export CSV
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- FIXED SCROLL WITHOUT BREAKING LAYOUT -->
+
+      <div class="w-full overflow-x-auto overflow-y-auto max-h-[60vh]">
+
+        <div id="analysisTable" class="tablehere min-w-[1100px]">
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT STATS SECTION -->
+
+    <div class="sectiontwohere m-2 rounded-2xl p-3 bg-[#0f172a] h-full border border-[#232f4f] w-[20vw] max-sm:w-full">
+
+      <div class="allboxeshere p-2 flex flex-col gap2">
+
+        <div class="box1 bg-[#0b1326] rounded-lg p-2 gap-2 flex flex-col mt-2 border border-[#17274e] w-full">
+
+          <div class="smalltxt text-[8px] text-slate-500">
+            TOTAL ROWS
+          </div>
+
+          <div id="totalRows" class="numberh text-[20px] font-bold">
+            1233
+          </div>
+
+        </div>
+
+        <div class="box2 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+
+          <div class="smalltxt text-[8px] text-slate-500">
+            AVERAGE INCOME
+          </div>
+
+          <div id="avgIncome" class="numberh text-[20px] font-bold">
+            82K
+          </div>
+
+        </div>
+
+        <div class="box3 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+
+          <div class="smalltxt text-[8px] text-slate-500">
+            TOOK LOAN
+          </div>
+
+          <div id="loanPercent" class="numberh text-[20px] font-bold">
+            67%
+          </div>
+
+        </div>
+
+        <div class="box4 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+
+          <div class="smalltxt text-[8px] text-slate-500">
+            CD ACCOUNT HOLDERS
+          </div>
+
+          <div id="cdPercent" class="numberh text-[20px] font-bold">
+            31%
+          </div>
+
+        </div>
+
+        <div class="box5 bg-[#0b1326] rounded-lg p-2 w-full gap-2 flex flex-col mt-2 border border-[#17274e]">
+
+          <div class="smalltxt text-[8px] text-slate-500">
+            EDUCATION COUNT
+          </div>
+
+          <div class="educationbars flex flex-col">
+
+            <div class="educationbar1">
+
+              <div class="numberh flex justify-between text-[10px] ">
+                <div class="headonr">
+                  Education 1
+                </div>
+
+                <div id="edu1Count" class="headtwor">
+                  428
+                </div>
+              </div>
+
+              <div
+                style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+
+                <div id="edu1Bar"
+                  style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="educationbar2 mt-1">
+
+              <div class="numberh flex justify-between text-[10px] ">
+                <div class="headonr">
+                  Education 2
+                </div>
+
+                <div id="edu2Count" class="headtwor">
+                  428
+                </div>
+              </div>
+
+              <div
+                style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+
+                <div id="edu2Bar"
+                  style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="educationbar3 mt-1">
+
+              <div class="numberh flex justify-between text-[10px] ">
+                <div class="headonr">
+                  Education 3
+                </div>
+
+                <div id="edu3Count" class="headtwor">
+                  428
+                </div>
+              </div>
+
+              <div
+                style="flex:1; height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;min-width:200px;">
+
+                <div id="edu3Bar"
+                  style="width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#8b5cf6);border-radius:999px;">
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
+</div>
   <!-- Feature Effect Page -->
 
-  <div id="featureeffect" class="featureeffect w-full hidden text-white mt-1">
-    <div class="twopages flex gap-3 m-3 max-sm:flex-col">
-      <div class="pagesec1 w-[30vw] bg-[#0b1326] rounded-lg p-2 border h-full border-[#17274e] max-sm:w-full">
-        <div class="headingboxh flex justify-between items-center">
-          <div class="twoheadhere flex flex-col gap-1">
-            <div class="htext text-[20px] font-bold">
-              Feature Controls
-            </div>
-            <!-- <div class="hsmalltxt text-[12px] text-slate-400">
-              Modify attributes to simulate prediction shifts.
-            </div> -->
+<div id="featureeffect" class="featureeffect w-full hidden text-white mt-1">
+
+  <div class="twopages flex gap-3 m-3 max-sm:flex-col">
+
+    <!-- LEFT CONTROLS -->
+
+    <div class="pagesec1 w-[30vw] bg-[#0b1326] rounded-lg p-2 border h-full border-[#17274e] max-sm:w-full">
+
+      <div class="headingboxh flex justify-between items-center">
+
+        <div class="twoheadhere flex flex-col gap-1">
+
+          <div class="htext text-[20px] font-bold">
+            Feature Controls
           </div>
-          <div data-source-pos="81:14-83:20" data-source-name="div"
-            class="w-8 h-8 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-300">
-            ✦</div>
+
         </div>
 
-
-        <div class="allbarshere mt-3">
-          <div class="barrow1 flex gap-3 p-1 w-full">
-            <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  Income
-                </div>
-                <div class="txttwoo" id="incomeValue">
-                  203
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="0" max="203" value="75" id="featureIncome">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">200</div>
-              </div> -->
-            </div>
-
-            <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  CCAvg
-                </div>
-                <div class="txttwoo" id="ccavgValue">
-                  10
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="0" max="10" step="0.1" value="2" id="featureCCAvg">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">10</div>
-              </div> -->
-            </div>
-
-          </div>
-
-          <div class="barrow2 mt-1 flex gap-3 p-1 w-full">
-            <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  Education
-                </div>
-                <div class="txttwoo" id="educationValue">
-                  3
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="1" max="3" step="1" value="1" id="featureEducation">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">3</div>
-              </div> -->
-            </div>
-
-            <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  CD Account
-                </div>
-                <div class="txttwoo" id="cdValue">
-                  1
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="0" max="1" value="0" step="1" id="featureCD">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">1</div>
-              </div> -->
-            </div>
-
-          </div>
-
-          <div class="barrow3 mt-1 flex gap-3 p-1 w-full">
-            <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  Mortgage
-                </div>
-                <div class="txttwoo" id="mortgageValue">
-                  120
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="0" max="700" value="120" id="featureMortgage">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">700</div>
-              </div> -->
-            </div>
-
-            <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
-              <div class="textno1 flex justify-between text-[10px]">
-                <div class="txtonee font-bold">
-                  Age
-                </div>
-                <div class="txttwoo" id="ageValue">
-                  20
-                </div>
-              </div>
-              <div class="barheree">
-                <div class="sliderwrap">
-                  <input type="range" min="0" max="80" value="25" id="featureAge">
-                </div>
-              </div>
-              <!-- <div class="endpoints flex justify-between text-[10px]">
-                <div class="pointone">0</div>
-                <div class="pointtwo">80</div>
-              </div> -->
-            </div>
-
-          </div>
-        </div>
+        <!-- EMPTY PLACEHOLDER TO KEEP EXACT LAYOUT -->
+        <div class="w-8 h-8"></div>
 
       </div>
 
-      <div class="page2he w-full">
-        <div class="topbottompage">
-          <div
-            class="toppagehere flex gap-3 bg-[#0b1326] rounded-lg p-2 border h-full border-[#17274e] items-center justify-center max-sm:flex-col">
-            <div class="meterpart">
+      <div class="allbarshere mt-3">
 
-              <div class=" px-5 py-4 rounded-2xl shadow-2xl">
+        <div class="barrow1 flex gap-3 p-1 w-full">
 
-                <div class="feature-gauge-wrapper">
-                  <svg class="feature-gauge-svg" viewBox="0 0 300 180">
+          <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
 
-                    <path class="feature-gauge-bg" d="M 30 150 A 120 120 0 0 1 270 150" />
+            <div class="textno1 flex justify-between text-[10px]">
 
-                    <path id="featureProgressArc" class="feature-gauge-progress" d="M 30 150 A 120 120 0 0 1 270 150" />
+              <div class="txtonee font-bold">
+                Income
+              </div>
 
-                  </svg>
-
-                  <div class="absolute inset-0 flex flex-col items-center justify-center mt-4">
-
-                    <h1 id="featurePercentageText" class="text-3xl font-bold text-cyan-300">
-                      0%
-                    </h1>
-
-                    <p class="text-slate-400 text-[12px] mt-1">
-                      Acceptance Probability
-                    </p>
-
-                  </div>
-                </div>
-
+              <div class="txttwoo" id="incomeValue">
+                203
               </div>
 
             </div>
 
-            <div class="buttonparthere">
-              <div class="makeflex max-sm:flex max-sm:flex-col max-sm:items-center">
-                <button>
-                  Real-Time Feature Simulation
-                </button>
-                <div class="acceptorrejecttxt text-2xl font-bold">
-                  Accept
-                </div>
-                <!-- <div class="smalltxtdwm text-slate-500 text-[10px]">
-                  Unlike the Predictor tab, this workspace focuses on understanding how each individual feature changes
-                  the model confidence dynamically.
-                </div> -->
+            <div class="barheree">
+
+              <div class="sliderwrap">
+                <input type="range" min="0" max="203" value="75" id="featureIncome">
               </div>
+
             </div>
 
           </div>
 
-          <div class="bottompahehere bg-[#0b1326] rounded-lg p-2 border h-full border-[#17274e] mt-3">
-            <div class="upperpage">
-              <div class="twoflexh flex justify-between items-center">
-                <div class="flexone flex flex-col gap-1 justify-center items-center">
-                  <div class="topflex font-bold text-[16px]">
-                    Feature Imapct
-                  </div>
-                  <div class="bottomflx text-[8px] text-slate-500">
-                    All inputs fit within one desktop view.
-                  </div>
-                </div>
+          <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
 
-                <div class="flextwoo flex flex-col gap-1 justify-center items-center">
-                  <div class="topflexxx text-[10px] text-slate-400">
-                    Model Confidence
-                  </div>
-                  <div class="bottomflxxx text-[16px] font-bold text-blue-400">
-                    0.900
-                  </div>
-                </div>
+            <div class="textno1 flex justify-between text-[10px]">
+
+              <div class="txtonee font-bold">
+                CCAvg
               </div>
+
+              <div class="txttwoo" id="ccavgValue">
+                10
+              </div>
+
             </div>
 
-            <div class="downpagehere mt-3">
-              <div class="featurebars">
-                <div class="featureonee flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      CD Account
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactCD">
-                      0.11
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
+            <div class="barheree">
 
-                      <div id="barCD"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="featuretwoo flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      Education
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactEducation">
-                      0.09
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
-
-                      <div id="barEducation"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="featurethree flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      Income
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactIncome">
-                      0.08
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
-
-                      <div id="barIncome"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="featurefour flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      CCAvg
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactCCAvg">
-                      0.06
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
-
-                      <div id="barCCAvg"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="featurefivee flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      Age
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactAge">
-                      0.03
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
-
-                      <div id="barAge"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="featurefivee flex flex-col gap-1 mt-2">
-                  <div class="featurename flex justify-between">
-                    <div class="featuretype font-bold text-[10px]">
-                      Mortgage
-                    </div>
-                    <div class="featureprobability font-bold text-[10px]" id="impactMortgage">
-                      -0.02
-                    </div>
-                  </div>
-                  <div class="featurebarr">
-                    <div style="flex:1; height:12px; background:#121c38; border-radius:999px; overflow:hidden;">
-
-                      <div id="barMortgage"
-                        style=" width:0%; height:100%; background:linear-gradient(to right,#00d2ff,#3a86ff); border-radius:999px; transition:0.5s;">
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
+              <div class="sliderwrap">
+                <input type="range" min="0" max="10" step="0.1" value="2" id="featureCCAvg">
               </div>
+
             </div>
 
           </div>
 
         </div>
+
+        <div class="barrow2 mt-1 flex gap-3 p-1 w-full">
+
+          <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <div class="textno1 flex justify-between text-[10px]">
+
+              <div class="txtonee font-bold">
+                Education
+              </div>
+
+              <div class="txttwoo" id="educationValue">
+                3
+              </div>
+
+            </div>
+
+            <div class="barheree">
+
+              <div class="sliderwrap">
+                <input type="range" min="1" max="3" step="1" value="1" id="featureEducation">
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <div class="textno1 flex justify-between text-[10px]">
+
+              <div class="txtonee font-bold">
+                CD Account
+              </div>
+
+              <div class="txttwoo" id="cdValue">
+                1
+              </div>
+
+            </div>
+
+            <div class="barheree">
+
+              <div class="sliderwrap">
+                <input type="range" min="0" max="1" value="0" step="1" id="featureCD">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="barrow3 mt-1 flex gap-3 p-1 w-full">
+
+          <div class="barone w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <div class="textno1 flex justify-between text-[10px]">
+
+              <div class="txtonee font-bold">
+                Mortgage
+              </div>
+
+              <div class="txttwoo" id="mortgageValue">
+                120
+              </div>
+
+            </div>
+
+            <div class="barheree">
+
+              <div class="sliderwrap">
+                <input type="range" min="0" max="700" value="120" id="featureMortgage">
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="bartwo w-1/2 gap-2 flex flex-col bg-[#0b1326] rounded-lg p-2 border border-[#17274e]">
+
+            <div class="textno1 flex justify-between text-[10px]">
+
+              <div class="txtonee font-bold">
+                Age
+              </div>
+
+              <div class="txttwoo" id="ageValue">
+                20
+              </div>
+
+            </div>
+
+            <div class="barheree">
+
+              <div class="sliderwrap">
+
+                <!-- ONLY FUNCTIONAL CHANGE -->
+                <input type="range" min="18" max="100" value="25" id="featureAge">
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="page2he w-full">
+
+      <div class="topbottompage">
+
+        <!-- TOP CARD -->
+
+        <div
+          class="toppagehere flex gap-3 bg-[#0b1326] rounded-lg p-2 border h-full border-[#17274e] items-center justify-center max-sm:flex-col">
+
+          <div class="meterpart">
+
+            <div class="px-5 py-4 rounded-2xl shadow-2xl">
+
+              <div class="feature-gauge-wrapper">
+
+                <svg class="feature-gauge-svg" viewBox="0 0 300 180">
+
+                  <path class="feature-gauge-bg"
+                    d="M 30 150 A 120 120 0 0 1 270 150" />
+
+                  <path id="featureProgressArc"
+                    class="feature-gauge-progress"
+                    d="M 30 150 A 120 120 0 0 1 270 150" />
+
+                </svg>
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center mt-4">
+
+                  <h1 id="featurePercentageText"
+                    class="text-3xl font-bold text-cyan-300">
+
+                    0%
+
+                  </h1>
+
+                  <p class="text-slate-400 text-[12px] mt-1">
+                    Acceptance Probability
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="buttonandtext">
+
+            <div class="realtime text-white text-2xl">
+              Real-Time Feature Simulation
+            </div>
+
+            <div class="acceptorrejecttxt text-green-400 text-4xl font-bold">
+              Accept
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- BOTTOM CARD -->
+
+        <div class="bottompagehere bg-[#0b1326] rounded-lg p-3 border border-[#17274e] mt-3">
+
+          <div class="topline flex justify-between items-center">
+
+            <div>
+
+              <div class="featureimpacttxt text-[20px] font-bold">
+                Feature Impact
+              </div>
+
+              <!-- REMOVED TEXT ONLY -->
+            </div>
+
+            <div class="confidence flex flex-col items-end">
+
+              <div class="text-[12px] text-slate-400">
+                Model Confidence
+              </div>
+
+              <div class="bottomflxxx text-green-400 text-3xl font-bold">
+                0.734
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- EXACT ORIGINAL SPACING KEPT -->
+
+          <div class="allimpacts mt-4 flex flex-col gap-4">
+
+            <!-- CD ACCOUNT -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  CD Account
+                </div>
+
+                <div id="impactCD"
+                  class="text-red-300 text-[12px] font-bold">
+                  0.111
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barCD"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#ff0055,#ff5ca8);">
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- EDUCATION -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  Education
+                </div>
+
+                <div id="impactEducation"
+                  class="text-blue-300 text-[12px] font-bold">
+                  -0.182
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barEducation"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#00d2ff,#3a86ff);">
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- INCOME -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  Income
+                </div>
+
+                <div id="impactIncome"
+                  class="text-red-300 text-[12px] font-bold">
+                  0.175
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barIncome"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#ff0055,#ff5ca8);">
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- CCAVG -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  CCAvg
+                </div>
+
+                <div id="impactCCAvg"
+                  class="text-red-300 text-[12px] font-bold">
+                  0.135
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barCCAvg"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#ff0055,#ff5ca8);">
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- AGE -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  Age
+                </div>
+
+                <div id="impactAge"
+                  class="text-blue-300 text-[12px] font-bold">
+                  -0.016
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barAge"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#00d2ff,#3a86ff);">
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- MORTGAGE -->
+
+            <div>
+
+              <div class="flex justify-between items-center mb-1">
+
+                <div class="text-white text-[12px] font-bold">
+                  Mortgage
+                </div>
+
+                <div id="impactMortgage"
+                  class="text-blue-300 text-[12px] font-bold">
+                  -0.016
+                </div>
+
+              </div>
+
+              <div
+                style="height:14px; background:#121c38; border-radius:999px; overflow:hidden; position:relative;">
+
+                <div id="barMortgage"
+                  style="width:0%; height:100%; border-radius:999px; background:linear-gradient(to right,#00d2ff,#3a86ff);">
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+</div>
 
 </body>
 
