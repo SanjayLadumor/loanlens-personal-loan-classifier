@@ -7,7 +7,20 @@ import numpy as np
 import os
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__)
+from flask import Flask, request, jsonify, send_from_directory
+
+app = Flask(
+    __name__,
+    static_folder="../Front-End",
+    static_url_path=""
+)
+
+@app.route("/")
+def home():
+    return send_from_directory(
+        app.static_folder,
+        "index.html"
+    )
 
 # =========================================
 # CORS
@@ -655,10 +668,10 @@ def analysis():
         # SAVE FILTERED CSV
         # =====================================
 
-        df.to_csv(
-            filtered_csv_path,
-            index=False
-        )
+        # df.to_csv(
+        #     filtered_csv_path,
+        #     index=False
+        # )
 
         # =====================================
         # EMPTY RESULT

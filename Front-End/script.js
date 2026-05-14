@@ -1,3 +1,8 @@
+window.addEventListener("beforeunload", () => {
+    console.log("FULL PAGE RELOAD HAPPENING");
+});
+
+
 setTimeout(() => {
 
     const splash = document.getElementById("splash");
@@ -621,14 +626,19 @@ const featurePercentageText =
         "featurePercentageText"
     );
 
-const featureArcLength =
-    featureProgressArc.getTotalLength();
+let featureArcLength = 0;
 
-featureProgressArc.style.strokeDasharray =
-    featureArcLength;
+if (featureProgressArc) {
 
-featureProgressArc.style.strokeDashoffset =
-    featureArcLength;
+    featureArcLength =
+        featureProgressArc.getTotalLength();
+
+    featureProgressArc.style.strokeDasharray =
+        featureArcLength;
+
+    featureProgressArc.style.strokeDashoffset =
+        featureArcLength;
+}
 
 function getFeatureGaugeColor(value) {
 
@@ -833,9 +843,9 @@ async function updateFeatureEffects() {
             Math.max(
                 ...data.shap_values.map(
                     item =>
-                    Math.abs(
-                        item.shap_value
-                    )
+                        Math.abs(
+                            item.shap_value
+                        )
                 )
             );
 
@@ -848,13 +858,13 @@ async function updateFeatureEffects() {
                 item.shap_value;
 
             const width =
-    Math.min(
-        Math.max(
-            Math.abs(shap) * 260,
-            4
-        ),
-        100
-    );
+                Math.min(
+                    Math.max(
+                        Math.abs(shap) * 260,
+                        4
+                    ),
+                    100
+                );
 
             let id = "";
             let bar = "";
@@ -957,6 +967,8 @@ let featureTimeout;
 Object.values(featureInputs)
     .forEach(input => {
 
+        if (!input) return;
+
         input.addEventListener(
             "input",
 
@@ -976,7 +988,12 @@ Object.values(featureInputs)
         );
     });
 
-updateFeatureEffects();
+if (
+    document.getElementById("featureIncome")
+) {
+
+    updateFeatureEffects();
+}
 
 // ========================================
 // ANALYSIS SLIDERS
@@ -1161,98 +1178,99 @@ uploadDatasetBtn.addEventListener(
 // ========================================
 
 const showResultsBtn =
-    document.querySelector(
-        ".showresults button"
-    );
+    document.querySelector(".showresults button");
 
-showResultsBtn.addEventListener(
-    "click",
-    async () => {
+if (showResultsBtn) {
 
-        try {
+    showResultsBtn.type = "button";
 
-            const age =
-                document.getElementById(
-                    "agebox"
-                ).value;
+    showResultsBtn.addEventListener(
+        "click",
 
-            const experience =
-                document.getElementById(
-                    "experiencebox"
-                ).value;
+        async function (e) {
 
-            const zipcode =
-                document.getElementById(
-                    "zipcode"
-                ).value;
+            e.preventDefault();
+            e.stopPropagation();
 
-            const income =
-                document.getElementById(
-                    "analysisIncome"
-                ).value;
+            try {
 
-            const ccavg =
-                document.getElementById(
-                    "analysisCCAvg"
-                ).value;
+                showResultsBtn.disabled = true;
 
-            const mortgage =
-                document.getElementById(
-                    "analysisMortgage"
-                ).value;
+                const age =
+                    document.getElementById("agebox").value;
 
-            const response =
-                await fetch(
-                    "http://127.0.0.1:5000/analysis",
-                    {
+                const experience =
+                    document.getElementById("experiencebox").value;
 
-                        method: "POST",
+                const zipcode =
+                    document.getElementById("zipcode").value;
 
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
+                const income =
+                    document.getElementById("analysisIncome").value;
 
-                        body: JSON.stringify({
+                const ccavg =
+                    document.getElementById("analysisCCAvg").value;
 
-                            age,
-                            experience,
-                            zipcode,
-                            income,
-                            ccavg,
-                            mortgage
-                        })
-                    }
-                );
+                const mortgage =
+                    document.getElementById("analysisMortgage").value;
 
-            const data =
-                await response.json();
+                const response =
+                    await fetch(
+                        "http://127.0.0.1:5000/analysis",
+                        {
+                            method: "POST",
 
-            if (data.error) {
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
 
-                alert(
-                    data.error
-                );
+                            body: JSON.stringify({
+                                age,
+                                experience,
+                                zipcode,
+                                income,
+                                ccavg,
+                                mortgage
+                            })
+                        }
+                    );
 
-                return;
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Backend response failed"
+                    );
+                }
+
+                const data =
+                    await response.json();
+
+                console.log("ANALYSIS DATA:", data);
+
+                // IMPORTANT FIX
+                renderAnalysisTable(data.table);
+
+                updateAnalysisStats(data.stats);
+
             }
 
-            renderAnalysisTable(
-                data.table
-            );
+            catch (error) {
 
-            updateAnalysisStats(
-                data.stats
-            );
+                console.log(
+                    "ANALYSIS FETCH ERROR:",
+                    error
+                );
 
+                alert("Analysis request failed");
+            }
+
+            finally {
+
+                showResultsBtn.disabled = false;
+            }
         }
-
-        catch (error) {
-
-            console.log(error);
-        }
-    }
-);
+    );
+}
 
 // ========================================
 // ANALYSIS TABLE
@@ -1456,3 +1474,151 @@ exportBtn.addEventListener(
         );
     }
 );
+
+// ========================================
+// ANALYSIS TABLE RENDER
+// ========================================
+
+function renderAnalysisTable(rows) {
+
+    const table =
+        document.getElementById(
+            "analysisTable"
+        );
+
+    if (!table) return;
+
+    if (!rows || rows.length === 0) {
+
+        table.innerHTML = `
+            <div class="text-center text-slate-400 p-5">
+                No matching rows found
+            </div>
+        `;
+
+        return;
+    }
+
+    const columns =
+        Object.keys(rows[0]);
+
+    let html = `
+        <table class="w-full text-[11px] border-collapse">
+            <thead>
+                <tr class="bg-[#17274e] text-cyan-300">
+    `;
+
+    columns.forEach(col => {
+
+        html += `
+            <th class="p-2 border border-[#22345f] whitespace-nowrap">
+                ${col}
+            </th>
+        `;
+    });
+
+    html += `
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    rows.forEach(row => {
+
+        html += `<tr>`;
+
+        columns.forEach(col => {
+
+            html += `
+                <td class="p-2 border border-[#1e2d52] whitespace-nowrap text-center">
+                    ${row[col]}
+                </td>
+            `;
+        });
+
+        html += `</tr>`;
+    });
+
+    html += `
+            </tbody>
+        </table>
+    `;
+
+    table.innerHTML = html;
+}
+
+// ========================================
+// ANALYSIS STATS UPDATE
+// ========================================
+
+function updateAnalysisStats(stats) {
+
+    if (!stats) return;
+
+    document.getElementById(
+        "totalRows"
+    ).innerText =
+        stats.total_rows || 0;
+
+    document.getElementById(
+        "avgIncome"
+    ).innerText =
+        (stats.avg_income || 0) + "K";
+
+    document.getElementById(
+        "loanPercent"
+    ).innerText =
+        (stats.loan_percentage || 0) + "%";
+
+    document.getElementById(
+        "cdPercent"
+    ).innerText =
+        (stats.cd_percentage || 0) + "%";
+
+    const edu =
+        stats.education_counts || {};
+
+    const edu1 =
+        edu.edu1 || 0;
+
+    const edu2 =
+        edu.edu2 || 0;
+
+    const edu3 =
+        edu.edu3 || 0;
+
+    const max =
+        Math.max(
+            edu1,
+            edu2,
+            edu3,
+            1
+        );
+
+    document.getElementById(
+        "edu1Count"
+    ).innerText = edu1;
+
+    document.getElementById(
+        "edu2Count"
+    ).innerText = edu2;
+
+    document.getElementById(
+        "edu3Count"
+    ).innerText = edu3;
+
+    document.getElementById(
+        "edu1Bar"
+    ).style.width =
+        (edu1 / max) * 100 + "%";
+
+    document.getElementById(
+        "edu2Bar"
+    ).style.width =
+        (edu2 / max) * 100 + "%";
+
+    document.getElementById(
+        "edu3Bar"
+    ).style.width =
+        (edu3 / max) * 100 + "%";
+}
