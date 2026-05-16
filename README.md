@@ -144,7 +144,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Category | Tools |
 | --- | --- |
 | Structure | HTML |
-| Styling | CSS |
+| Styling | CSS & Tailwind |
 | Interactivity | JavaScript |
 | Backend Communication | Flask APIs |
 | Data Visualization | Custom charts and dynamic UI components |
@@ -231,6 +231,10 @@ The project includes a modern multi-page interactive web interface designed for 
 
 # 🚀 Deployment
 
+## Live Demo
+https://loanlens-personal-loan-classifier.onrender.com/
+<br>
+
 | Step | Description |
 | --- | --- |
 | Model Saving | Serialized using pickle |
@@ -238,7 +242,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Hosting Platform | Render |
 | Prediction Type | Real-time + batch prediction |
 | Explainability | SHAP integration |
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML, CSS, JavaScript, Tailwind |
 
 ---
 
@@ -251,7 +255,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Modeling | Scikit-learn, Imbalanced-learn |
 | Explainability | SHAP |
 | Backend | Flask |
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML, CSS, JavaScript, Tailwind |
 | Deployment | Render |
 | Model Saving | Pickle |
 
