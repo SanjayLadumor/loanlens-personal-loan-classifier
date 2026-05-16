@@ -95,17 +95,29 @@ def prepare_single_input(data):
     age = float(data["age"])
 
     if age < 18 or age > 100:
-        raise ValueError(
-            "Age must be between 18 and 100"
-        )
+        raise ValueError("Age must be between 18 and 100")
 
     income = float(data["income"])
 
     ccavg = float(data["ccavg"])
 
+    if income < 0:
+        raise ValueError("Annual Income cannot be negative")
+
+    if ccavg < 0:
+        raise ValueError("CCAvg cannot be negative")
+
     cd_account = float(data["cd_account"])
 
+    if cd_account not in [0, 1]:
+        raise ValueError("CD Account must be either 0 or 1")
+
     mortgage = float(data["mortgage"])
+
+    if mortgage < 0:
+        raise ValueError("Mortgage cannot be negative")
+
+    
 
     education = float(data["education"])
 
@@ -602,6 +614,8 @@ def analysis():
                 "Bank_Personal_Loan_Modelling.csv"
             )
 
+        df = df.fillna(0)
+
         print("TOTAL DATASET ROWS:", len(df))
 
         # =====================================
@@ -691,13 +705,14 @@ def analysis():
             ]
 
         if loan not in [None,""]:
-            loan_value=(
-                1
-                if int(loan)==1
-                else 0
-            )
+            if "Personal Loan" in df.columns:
+                loan_value=(
+                    1
+                    if int(loan)==1
+                    else 0
+                )
 
-            df = df[df["Personal Loan"]==loan_value]    
+                df = df[df["Personal Loan"]==loan_value]    
 
         if securities not in [None, ""]:
 

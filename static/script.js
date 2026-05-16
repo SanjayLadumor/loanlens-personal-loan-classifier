@@ -1,4 +1,3 @@
-
 setTimeout(() => {
 
     const splash = document.getElementById("splash");
@@ -323,11 +322,35 @@ predictBtn.addEventListener(
         const ccavg =
             document.getElementById("ccavg").value;
 
+        if (Number(income) < 0)
+        {
+            alert("Annual Income cannot be negative");
+            return;
+        }
+
+        if (Number(ccavg) < 0)
+        {
+            alert("CCAvg cannot be negative");
+            return;
+        }
+
         const cd_account =
             document.getElementById("cdaccount").value;
 
+        if (cd_account !== "0" && cd_account !== "1") 
+            {
+                alert("CD Account value must be either 0 or 1");
+                return;
+            }
+
         const mortgage =
             document.getElementById("mortgage").value;
+
+        if (Number(mortgage) < 0)
+        {
+            alert("Mortgage cannot be negative");
+            return;
+        }
 
         const education =
             document.getElementById("education").value;

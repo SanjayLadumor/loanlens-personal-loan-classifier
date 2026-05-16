@@ -1,5 +1,4 @@
 # LoanLens - Personal Loan Classifier
-# Personal-Loan-Classifier
 
 End-to-end ML project to predict personal loan acceptance for a retail bank (Thera Bank). Includes business-driven EDA, feature engineering, imbalance handling with SMOTENC, GridSearchCV tuning, model comparison, SHAP-based explainability, interactive analytics dashboards, bulk CSV prediction support, and Flask-based deployment. Optimized for high recall to minimize missed revenue opportunities.
 
@@ -144,7 +143,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Category | Tools |
 | --- | --- |
 | Structure | HTML |
-| Styling | CSS |
+| Styling | CSS & Tailwind |
 | Interactivity | JavaScript |
 | Backend Communication | Flask APIs |
 | Data Visualization | Custom charts and dynamic UI components |
@@ -190,6 +189,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Default Dataset Support | Uses training dataset if no upload is provided |
 | Dynamic Filtering | Filter rows using selected customer features |
 | Flexible Inputs | Filters are optional and combinable |
+| Threshold-Based Numeric Filtering | Age, Experience, Income, CCAvg, and Mortgage filters use >= logic |
 | Live Statistics | Real-time metrics update based on filtered rows |
 | Export CSV | Download filtered dataset |
 
@@ -231,6 +231,10 @@ The project includes a modern multi-page interactive web interface designed for 
 
 # 🚀 Deployment
 
+## Live Demo
+https://loanlens-personal-loan-classifier.onrender.com/
+<br>
+
 | Step | Description |
 | --- | --- |
 | Model Saving | Serialized using pickle |
@@ -238,7 +242,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Hosting Platform | Render |
 | Prediction Type | Real-time + batch prediction |
 | Explainability | SHAP integration |
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML, CSS, JavaScript, Tailwind |
 
 ---
 
@@ -251,7 +255,7 @@ The project includes a modern multi-page interactive web interface designed for 
 | Modeling | Scikit-learn, Imbalanced-learn |
 | Explainability | SHAP |
 | Backend | Flask |
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML, CSS, JavaScript, Tailwind |
 | Deployment | Render |
 | Model Saving | Pickle |
 
@@ -270,16 +274,26 @@ The project includes a modern multi-page interactive web interface designed for 
 - Backend development and Flask integration
 - CSV prediction and analytics pipeline implementation
 
+
+📧 Email: bhavyamotiyani68@gmail.com
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/bhavya-motiyani-059544306)
+
+
 ---
 
 ## Sanjay Ladumor
 
 ### Contributions
-- Frontend UI/UX design and implementation
-- Interactive dashboard development
-- Frontend functionality integration
-- Backend integration and application workflow
-- User interaction and visualization components
+- Designed and developed the complete frontend architecture and interactive UI/UX
+- Built multi-page dashboards for Prediction, Analysis, and Feature Effects simulation
+- Implemented dynamic JavaScript-based visualizations and real-time user interactions
+- Integrated frontend with Flask backend APIs for prediction, analytics, and CSV workflows (AI Assisted)
+- Implemented responsive layouts, dynamic tables, filtering systems, and CSV export functionality
+- Contributed to application workflow optimization, debugging, deployment integration, and user experience enhancements
+
+  Github : https://github.com/SanjayLadumor
+  <br>
+  LinkedIn : https://www.linkedin.com/in/sanjay-ladumor-360a51381/
 
 ---
 
