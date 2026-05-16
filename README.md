@@ -275,11 +275,15 @@ The project includes a modern multi-page interactive web interface designed for 
 ## Sanjay Ladumor
 
 ### Contributions
-- Frontend UI/UX design and implementation
-- Interactive dashboard development
-- Frontend functionality integration
-- Backend integration and application workflow
-- User interaction and visualization components
+- Designed and developed the complete frontend architecture and interactive UI/UX
+- Built multi-page dashboards for Prediction, Analysis, and Feature Effects simulation
+- Implemented dynamic JavaScript-based visualizations and real-time user interactions
+- Integrated frontend with Flask backend APIs for prediction, analytics, and CSV workflows (AI Assisted)
+- Implemented responsive layouts, dynamic tables, filtering systems, and CSV export functionality
+- Contributed to application workflow optimization, debugging, deployment integration, and user experience enhancements
+
+  Github : https://github.com/SanjayLadumor
+  Linedin : https://www.linkedin.com/in/sanjay-ladumor-360a51381/
 
 ---
 
