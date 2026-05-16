@@ -274,8 +274,11 @@ https://loanlens-personal-loan-classifier.onrender.com/
 - Backend development and Flask integration
 - CSV prediction and analytics pipeline implementation
 
+
 📧 Email: bhavyamotiyani68@gmail.com
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/bhavya-motiyani-059544306)
+
+
 ---
 
 ## Sanjay Ladumor
