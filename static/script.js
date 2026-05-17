@@ -14,6 +14,20 @@ setTimeout(() => {
 
 }, 3000);
 
+const cdinput = document.getElementById("cdaccount");
+cdinput.addEventListener("input", () => {
+    if (
+        cdinput.value !== "" &&
+        cdinput.value !== "0" &&
+        cdinput.value !== "1"
+    ) {
+        cdinput.style.borderColor = "red";
+    } 
+    else {
+        cdinput.style.borderColor = "#63E6FF";
+    }
+});
+
 // ========================================
 // PAGE NAVIGATION
 // ========================================
