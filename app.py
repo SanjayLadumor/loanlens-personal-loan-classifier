@@ -83,7 +83,7 @@ def create_model_features(df):
 
     df["CCToIncomeRatio"] = np.where(
         df["Income"] != 0,
-        df["CCAvg"] / df["Income"],
+        df["CCAvg"] / (df["Income"]/12),
         0
     )
 
