@@ -122,7 +122,7 @@ def prepare_single_input(data):
     education = float(data["education"])
 
     cc_to_income_ratio = (
-        ccavg / income
+        (ccavg / (income/12))
         if income != 0
         else 0
     )
